@@ -1,0 +1,15 @@
+# brew
+git
+zsh
+pyenv
+nodenv
+
+# brew cask
+firefox
+visual-studio-code
+iterm2
+
+# other
+https://github.com/sorin-ionescu/prezto
+https://github.com/sindresorhus/iterm2-snazzy
+https://github.com/pine/nodenv-yarn-install
