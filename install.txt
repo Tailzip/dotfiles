@@ -8,6 +8,7 @@ nodenv
 firefox
 visual-studio-code
 iterm2
+docker
 
 # other
 https://github.com/sorin-ionescu/prezto
