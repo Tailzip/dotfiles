@@ -2,6 +2,7 @@
 git
 zsh
 pyenv
+pyenv-virtualenv
 nodenv
 
 # brew cask
