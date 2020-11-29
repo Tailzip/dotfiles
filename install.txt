@@ -4,12 +4,14 @@ zsh
 pyenv
 pyenv-virtualenv
 nodenv
+tldr
 
 # brew cask
 firefox
 visual-studio-code
 iterm2
 docker
+silicon-labs-vcp-driver # USB-UART driver, requires 'brew tap homebrew/cask-drivers'
 
 # other
 https://github.com/sorin-ionescu/prezto
