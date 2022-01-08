@@ -1,19 +1,26 @@
 # brew
 git
 zsh
-pyenv
-pyenv-virtualenv
-nodenv
 tldr
+asdf
+jq
+bash
+exa
+lima
+bat
+dog
+thefuck
+mcfly
+broot
 
 # brew cask
 firefox
+brave-browser
 visual-studio-code
 iterm2
-docker
+spotify
 silicon-labs-vcp-driver # USB-UART driver, requires 'brew tap homebrew/cask-drivers'
 
 # other
 https://github.com/sorin-ionescu/prezto
 https://github.com/sindresorhus/iterm2-snazzy
-https://github.com/pine/nodenv-yarn-install
