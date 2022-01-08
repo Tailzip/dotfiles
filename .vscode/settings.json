@@ -2,7 +2,7 @@
     "telemetry.enableTelemetry": false,
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.automationShell.osx": "zsh",
-    "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+    "terminal.integrated.shell.osx": "/opt/homebrew/bin/zsh",
     "workbench.startupEditor": "newUntitledFile",
     "files.trimTrailingWhitespace": true,
     "editor.formatOnSave": true,
