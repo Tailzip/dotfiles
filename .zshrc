@@ -6,16 +6,44 @@ fi
 # disable auto-correct
 unsetopt correct
 
-# pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-
-  if which pyenv-virtualenv-init > /dev/null; then 
-    eval "$(pyenv virtualenv-init -)"
-  fi
+# brew zsh completions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 fi
 
-# nodenv
-if command -v nodenv 1>/dev/null 2>&1; then
-  eval "$(nodenv init -)"
-fi
+# load custom zsh completions
+FPATH=$HOME/.zsh/completions:$FPATH
+
+# load custom zsh functions
+for function in ~/.zsh/functions/*.zsh; do
+  source $function
+done
+
+# enable completion
+autoload -Uz compinit
+compinit
+
+# asdf
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# exa
+alias l="exa"
+alias la="exa -a"
+alias ll="exa -lah"
+alias ls="exa --color=auto"
+
+# bat
+alias cat="bat"
+
+# mcfly
+eval "$(mcfly init zsh)"
+
+# dog
+alias dig="dog"
+
+# thefuck
+eval "$(thefuck --alias)"
+
+# lima
+alias docker-start="limactl start"
+alias docker-stop="limactl stop"

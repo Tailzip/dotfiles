@@ -1,0 +1,3 @@
+docker() {
+  lima nerdctl "$@"
+}
