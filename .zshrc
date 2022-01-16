@@ -47,3 +47,15 @@ eval "$(thefuck --alias)"
 # lima
 alias docker-start="limactl start"
 alias docker-stop="limactl stop"
+
+# virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
+
+mkenv(){
+  virtualenv -p $(asdf where python "$1")/bin/python "$WORKON_HOME"/"$2"
+}
+
+workon(){
+  source "$WORKON_HOME"/"$1"/bin/activate
+  # [ -d "$PROJECT_HOME"/"$1" ] && cd "$PROJECT_HOME"/"$1"
+}
