@@ -2,8 +2,11 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-# asdf
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
+# mise
+mise activate fish | source
+
+# secretive
+set -x SSH_AUTH_SOCK /Users/antoinetanzilli/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 
 # mcfly
 mcfly init fish | source
@@ -36,7 +39,7 @@ function mkenv -d "Create a Python virtualenv"
         return 1
     end
 
-    set python_bin "$HOME/.asdf/installs/python/$python_version/bin/python"
+    set python_bin "$HOME/.local/share/mise/installs/python/$python_version/bin/python"
 
     if test ! -f "$python_bin"
         echo "Error: Python version '$python_version' not installed (run 'asdf install python $python_version' to install it)." >&2
@@ -64,15 +67,14 @@ function workon -d "Activate a Python virtualenv"
 end
 
 # completions
-function asdf_python_versions
-    asdf list python 2>/dev/null | string trim | string trim --left --chars '*'
+function _mise_python_versions
+    mise list python --json | jq -r '.[] | .version'
 end
-set python_versions (asdf_python_versions)
 complete -f -c mkenv
-complete -f -c mkenv -n "not __fish_seen_subcommand_from $python_versions" -a "$python_versions"
+complete -f -c mkenv -n "not __fish_seen_subcommand_from (_mise_python_versions)" -a "(_mise_python_versions)"
 
-function all_venvs
+function _all_venvs
     find "$HOME/.venvs" -type d -mindepth 1 -maxdepth 1 -exec basename {} \;
 end
-set venvs (all_venvs)
-complete -f -c workon -n "not __fish_seen_subcommand_from $venvs" -a "$venvs"
+complete -f -c workon
+complete -f -c workon -n "not __fish_seen_subcommand_from (_all_venvs)" -a "(_all_venvs)"

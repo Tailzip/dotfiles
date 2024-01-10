@@ -2,7 +2,7 @@
 git
 zsh
 tldr
-asdf
+mise
 jq
 bash
 exa
